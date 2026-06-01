@@ -55,6 +55,12 @@
         "default": "Alt+Down"
       },
       "description": "Тише (-10%)"
+    },
+    "prev-track": {
+      "suggested_key": {
+        "default": "Alt+Left"
+      },
+      "description": "Предыдущий трек"
     }
   }
 }
