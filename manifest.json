@@ -34,33 +34,31 @@
   "commands": {
     "play-pause": {
       "suggested_key": {
-        "default": "Alt+P"
+        "default": "Ctrl+Space"
       },
-      "description": "Воспроизведение / Пауза"
+      "description": "Воспроизведение / Пауза",
+      "global": true
     },
     "next-track": {
       "suggested_key": {
-        "default": "Alt+Right"
+        "default": "Ctrl+B"
       },
-      "description": "Следующий трек"
+      "description": "Следующий трек",
+      "global": true
     },
     "volume-up": {
       "suggested_key": {
-        "default": "Alt+Up"
+        "default": "Ctrl+E"
       },
-      "description": "Громче (+10%)"
+      "description": "Громче (+10%)",
+      "global": true
     },
     "volume-down": {
       "suggested_key": {
-        "default": "Alt+Down"
+        "default": "Ctrl+D"
       },
-      "description": "Тише (-10%)"
-    },
-    "prev-track": {
-      "suggested_key": {
-        "default": "Alt+Left"
-      },
-      "description": "Предыдущий трек"
+      "description": "Тише (-10%)",
+      "global": true
     }
   }
 }
