@@ -1,9 +1,9 @@
 {
   "manifest_version": 3,
   "name": "Яндекс.Музыка — глобальные хоткеи",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Управление Яндекс.Музыкой с любой вкладки: пауза, треки, громкость",
-  "permissions": ["commands", "tabs", "scripting", "storage"],
+  "permissions": ["commands", "tabs", "storage"],
   "host_permissions": [
     "https://music.yandex.ru/*",
     "https://music.yandex.com/*"
@@ -24,27 +24,19 @@
   },
   "commands": {
     "play-pause": {
-      "suggested_key": {
-        "default": "Alt+P"
-      },
+      "suggested_key": { "default": "Alt+P" },
       "description": "Воспроизведение / Пауза"
     },
     "next-track": {
-      "suggested_key": {
-        "default": "Alt+Right"
-      },
+      "suggested_key": { "default": "Alt+Right" },
       "description": "Следующий трек"
     },
     "prev-track": {
-      "suggested_key": {
-        "default": "Alt+Left"
-      },
+      "suggested_key": { "default": "Alt+Left" },
       "description": "Предыдущий трек"
     },
     "volume-up": {
-      "suggested_key": {
-        "default": "Alt+Up"
-      },
+      "suggested_key": { "default": "Alt+Up" },
       "description": "Громче (+10%)"
     }
   }
