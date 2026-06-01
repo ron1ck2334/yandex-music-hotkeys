@@ -3,7 +3,11 @@
   "name": "Яндекс.Музыка — глобальные хоткеи",
   "version": "1.2.0",
   "description": "Управление Яндекс.Музыкой с любой вкладки: пауза, треки, громкость",
-  "permissions": ["commands", "tabs", "storage"],
+  "permissions": [
+    "commands",
+    "tabs",
+    "storage"
+  ],
   "host_permissions": [
     "https://music.yandex.ru/*",
     "https://music.yandex.com/*"
@@ -13,8 +17,13 @@
   },
   "content_scripts": [
     {
-      "matches": ["https://music.yandex.ru/*", "https://music.yandex.com/*"],
-      "js": ["content.js"],
+      "matches": [
+        "https://music.yandex.ru/*",
+        "https://music.yandex.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
       "run_at": "document_idle"
     }
   ],
@@ -24,23 +33,27 @@
   },
   "commands": {
     "play-pause": {
-      "suggested_key": { "default": "Alt+P" },
+      "suggested_key": {
+        "default": "Alt+P"
+      },
       "description": "Воспроизведение / Пауза"
     },
     "next-track": {
-      "suggested_key": { "default": "Alt+Right" },
+      "suggested_key": {
+        "default": "Alt+Right"
+      },
       "description": "Следующий трек"
     },
-    "prev-track": {
-      "suggested_key": { "default": "Alt+Left" },
-      "description": "Предыдущий трек"
-    },
     "volume-up": {
-      "suggested_key": { "default": "Alt+Up" },
+      "suggested_key": {
+        "default": "Alt+Up"
+      },
       "description": "Громче (+10%)"
     },
     "volume-down": {
-      "suggested_key": { "default": "Alt+Down" },
+      "suggested_key": {
+        "default": "Alt+Down"
+      },
       "description": "Тише (-10%)"
     }
   }
