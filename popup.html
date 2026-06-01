@@ -4,33 +4,12 @@
   <meta charset="UTF-8">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: system-ui, -apple-system, sans-serif;
-      width: 280px;
-      background: #1a1a1a;
-      color: #e8e8e8;
-    }
-    .header {
-      background: #ff4040;
-      padding: 14px 16px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
+    body { font-family: system-ui, -apple-system, sans-serif; width: 280px; background: #1a1a1a; color: #e8e8e8; }
+    .header { background: #ff4040; padding: 14px 16px; display: flex; align-items: center; gap: 10px; }
     .header-icon { font-size: 22px; }
     .header-title { font-size: 14px; font-weight: 600; }
     .header-sub { font-size: 11px; opacity: 0.85; }
-    .status-bar {
-      background: #252525;
-      padding: 10px 14px;
-      font-size: 12px;
-      color: #aaa;
-      border-bottom: 1px solid #333;
-      min-height: 38px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
+    .status-bar { background: #252525; padding: 10px 14px; font-size: 12px; color: #aaa; border-bottom: 1px solid #333; min-height: 38px; display: flex; align-items: center; gap: 8px; }
     .status-dot { width: 7px; height: 7px; border-radius: 50%; background: #555; flex-shrink: 0; }
     .status-dot.active { background: #4ade80; }
     .status-track { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -46,6 +25,7 @@
     .btn:hover { background: #3a3a3a; }
     .btn-primary { background: #ff4040; color: #fff; }
     .btn-primary:hover { background: #e03030; }
+    .note { font-size: 11px; color: #666; padding: 0 14px 10px; line-height: 1.5; }
   </style>
 </head>
 <body>
@@ -64,12 +44,13 @@
 
   <div class="section">
     <div class="section-title">Горячие клавиши</div>
-    <div class="hotkey-row"><span class="hotkey-label">▶/⏸ Пауза</span><div class="hotkey-keys"><kbd>Alt</kbd><kbd>P</kbd></div></div>
-    <div class="hotkey-row"><span class="hotkey-label">⏭ Следующий</span><div class="hotkey-keys"><kbd>Alt</kbd><kbd>→</kbd></div></div>
-    <div class="hotkey-row"><span class="hotkey-label">⏮ Предыдущий</span><div class="hotkey-keys"><kbd>Alt</kbd><kbd>←</kbd></div></div>
-    <div class="hotkey-row"><span class="hotkey-label">🔊 Громче</span><div class="hotkey-keys"><kbd>Alt</kbd><kbd>↑</kbd></div></div>
-    <div class="hotkey-row"><span class="hotkey-label">🔉 Тише</span><div class="hotkey-keys"><kbd>Alt</kbd><kbd>↓</kbd></div></div>
+    <div class="hotkey-row"><span class="hotkey-label">▶/⏸ Пауза</span><div class="hotkey-keys"><kbd>Ctrl</kbd><kbd>Пробел</kbd></div></div>
+    <div class="hotkey-row"><span class="hotkey-label">⏭ Следующий</span><div class="hotkey-keys"><kbd>Ctrl</kbd><kbd>B</kbd></div></div>
+    <div class="hotkey-row"><span class="hotkey-label">🔊 Громче</span><div class="hotkey-keys"><kbd>Ctrl</kbd><kbd>E</kbd></div></div>
+    <div class="hotkey-row"><span class="hotkey-label">🔉 Тише</span><div class="hotkey-keys"><kbd>Ctrl</kbd><kbd>D</kbd></div></div>
   </div>
+
+  <p class="note">Предыдущий трек и другие клавиши можно назначить в настройках.</p>
 
   <div class="divider"></div>
 
