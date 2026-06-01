@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      width: 280px;
+      background: #1a1a1a;
+      color: #e8e8e8;
+      padding: 0;
+    }
+
+    .header {
+      background: linear-gradient(135deg, #ff4040 0%, #ff6b35 100%);
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .header-icon { font-size: 22px; }
+    .header-title { font-size: 14px; font-weight: 600; }
+    .header-sub { font-size: 11px; opacity: 0.85; }
+
+    .status-bar {
+      background: #252525;
+      padding: 10px 14px;
+      font-size: 12px;
+      color: #aaa;
+      border-bottom: 1px solid #333;
+      min-height: 38px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .status-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: #555;
+      flex-shrink: 0;
+    }
+    .status-dot.active { background: #4ade80; }
+    .status-track { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+    .section { padding: 12px 14px 6px; }
+    .section-title {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #666;
+      margin-bottom: 8px;
+    }
+
+    .hotkey-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 5px 0;
+      font-size: 12.5px;
+    }
+    .hotkey-label { color: #ccc; }
+    .hotkey-keys { display: flex; gap: 3px; }
+    kbd {
+      background: #2e2e2e;
+      border: 1px solid #444;
+      border-radius: 4px;
+      padding: 2px 7px;
+      font-family: inherit;
+      font-size: 11px;
+      color: #e0e0e0;
+      white-space: nowrap;
+    }
+
+    .divider { height: 1px; background: #2a2a2a; margin: 4px 14px; }
+
+    .btn-row {
+      display: flex;
+      gap: 6px;
+      padding: 8px 14px 12px;
+    }
+    .btn {
+      flex: 1;
+      padding: 7px 0;
+      border: none;
+      border-radius: 6px;
+      font-size: 12px;
+      cursor: pointer;
+      background: #2e2e2e;
+      color: #ccc;
+      transition: background 0.15s;
+    }
+    .btn:hover { background: #3a3a3a; }
+    .btn-primary { background: #ff4040; color: #fff; }
+    .btn-primary:hover { background: #e03030; }
+
+    .volume-display {
+      display: flex; align-items: center; gap: 8px;
+      padding: 4px 0;
+    }
+    .vol-label { font-size: 12px; color: #ccc; min-width: 70px; }
+    .vol-bar {
+      flex: 1; height: 4px; background: #333; border-radius: 2px; overflow: hidden;
+    }
+    .vol-fill { height: 100%; background: #ff4040; border-radius: 2px; transition: width 0.3s; }
+    .vol-pct { font-size: 12px; color: #888; min-width: 32px; text-align: right; }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-icon">♪</div>
+  <div>
+    <div class="header-title">ЯМ Хоткеи</div>
+    <div class="header-sub">Яндекс.Музыка — управление клавишами</div>
+  </div>
+</div>
+
+<div class="status-bar" id="status-bar">
+  <div class="status-dot" id="status-dot"></div>
+  <div class="status-track" id="status-text">Проверяю вкладку...</div>
+</div>
+
+<div class="section">
+  <div class="section-title">Горячие клавиши</div>
+
+  <div class="hotkey-row">
+    <span class="hotkey-label">▶/⏸ Пауза</span>
+    <div class="hotkey-keys"><kbd>Alt</kbd><kbd>P</kbd></div>
+  </div>
+  <div class="hotkey-row">
+    <span class="hotkey-label">⏭ Следующий</span>
+    <div class="hotkey-keys"><kbd>Alt</kbd><kbd>→</kbd></div>
+  </div>
+  <div class="hotkey-row">
+    <span class="hotkey-label">⏮ Предыдущий</span>
+    <div class="hotkey-keys"><kbd>Alt</kbd><kbd>←</kbd></div>
+  </div>
+  <div class="hotkey-row">
+    <span class="hotkey-label">🔊 Громче</span>
+    <div class="hotkey-keys"><kbd>Alt</kbd><kbd>↑</kbd></div>
+  </div>
+  <div class="hotkey-row">
+    <span class="hotkey-label">🔉 Тише</span>
+    <div class="hotkey-keys"><kbd>Alt</kbd><kbd>↓</kbd></div>
+  </div>
+  <div class="hotkey-row">
+    <span class="hotkey-label">❤️ Лайк</span>
+    <div class="hotkey-keys"><kbd>Alt</kbd><kbd>L</kbd></div>
+  </div>
+</div>
+
+<div id="vol-section" style="display:none">
+  <div class="divider"></div>
+  <div class="section" style="padding-bottom:8px">
+    <div class="section-title">Громкость</div>
+    <div class="volume-display">
+      <span class="vol-label">Текущая</span>
+      <div class="vol-bar"><div class="vol-fill" id="vol-fill" style="width:0%"></div></div>
+      <span class="vol-pct" id="vol-pct">—</span>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="btn-row">
+  <button class="btn" onclick="openShortcutsPage()">Изменить клавиши</button>
+  <button class="btn btn-primary" onclick="openYandexMusic()">Открыть ЯМ</button>
+</div>
+
+<script>
+// Получаем статус
+chrome.runtime.sendMessage({ type: 'GET_STATUS' }, (resp) => {
+  const dot = document.getElementById('status-dot');
+  const txt = document.getElementById('status-text');
+
+  if (chrome.runtime.lastError || !resp) {
+    txt.textContent = 'Ошибка соединения';
+    return;
+  }
+
+  if (!resp.found) {
+    txt.textContent = 'Вкладка ЯМ не открыта';
+    dot.className = 'status-dot';
+  } else {
+    dot.className = 'status-dot active';
+    txt.textContent = resp.track || 'Яндекс.Музыка открыта';
+
+    if (resp.volume !== null) {
+      document.getElementById('vol-section').style.display = 'block';
+      document.getElementById('vol-fill').style.width = resp.volume + '%';
+      document.getElementById('vol-pct').textContent = resp.volume + '%';
+    }
+  }
+});
+
+function openShortcutsPage() {
+  chrome.tabs.create({ url: 'chrome://extensions/shortcuts' });
+}
+
+function openYandexMusic() {
+  chrome.tabs.create({ url: 'https://music.yandex.ru' });
+}
+</script>
+</body>
+</html>
