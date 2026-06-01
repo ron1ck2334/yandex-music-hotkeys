@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Яндекс.Музыка — глобальные хоткеи",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Управление Яндекс.Музыкой с любой вкладки: пауза, треки, громкость",
   "permissions": ["commands", "tabs", "storage"],
   "host_permissions": [
@@ -38,6 +38,10 @@
     "volume-up": {
       "suggested_key": { "default": "Alt+Up" },
       "description": "Громче (+10%)"
+    },
+    "volume-down": {
+      "suggested_key": { "default": "Alt+Down" },
+      "description": "Тише (-10%)"
     }
   }
 }
