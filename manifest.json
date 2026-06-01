@@ -46,18 +46,6 @@
         "default": "Alt+Up"
       },
       "description": "Громче (+10%)"
-    },
-    "volume-down": {
-      "suggested_key": {
-        "default": "Alt+Down"
-      },
-      "description": "Тише (-10%)"
-    },
-    "like-track": {
-      "suggested_key": {
-        "default": "Alt+L"
-      },
-      "description": "Лайк / снять лайк"
     }
   }
 }
